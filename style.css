@@ -1,0 +1,127 @@
+/* MEME CHOSE QUE TP1 MAIS EN UTILISANT LE GRID CETTE FOIS (AU LIEU DU FLEX) */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display:wght@500&display=swap");
+
+:root {
+  --color1: #f8f4ec;
+  --color2: rgb(71, 77, 255);
+  --color3: rgb(29, 29, 29);
+  --color4: rgb(13, 13, 13);
+}
+
+* {
+  font-family: "inter", sans-serif;
+  padding: 5px;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* - NOTE 1 : Le sans-serif signifie "si la police inter n'est pas dispo, alors utilise sans-serif. C'est une sécurité" 
+   - NOTE 2 : prendre le réflexe de toujours mettre la ligne box-sizing:border-box pour éviter que les boites fonctionnent mal */
+
+body {
+  min-height: 100vh;
+  background: var(--color3);
+}
+/* - NOTE 1 : on met toujours un minimum de hauteur, exprimé en vh (fenêtre utilisateur) */
+
+nav {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 10px 20px;
+  color: var(--color1);
+  font-size: 0.8rem;
+}
+
+nav ul {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+nav li {
+  list-style: none;
+}
+
+.header {
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.header-left {
+}
+/* Ici, le 50% signifie la place qu'occupe cette div à l'intérieur de son aprent (donc la place de header-left à l'intérieur de header). Cela permet aussi de conserver les proportions lorsque l'on manipule la taille de la fenêtre. */
+
+.header-left-container h1 {
+  color: var(--color1);
+  font-size: 5rem;
+}
+
+.header-left-container h3 {
+  color: var(--color2);
+  font-size: 1.8rem;
+}
+
+.header-left-container p {
+  color: var(--color1);
+  font-size: 0.6rem;
+}
+
+/* .header-right {
+  width: 50%;
+} */
+
+#modem {
+  width: 100%;
+  margin: 0 auto;
+}
+/* - NOTE 1 : On a supprimé la classe header-right pour que l'image soit l'enfant direct de header. De cette manière, et c'est spésifique au Grid, l'image prendra automatiquement toute la place qui lui est allouée par le grid du parent. En loccurence nous avions mis un header qui donne 50% de place à header-left, et 50% à son 2ème enfant qui est l'image (et non plus header-right). C'est comme ça que l'image va prendre directement tout l'espace sans avoir besoin d'être retouchée. */
+
+.infos {
+  display: grid;
+  grid-template-columns: 33% 66%;
+  background: var(--color4);
+  border-radius: 10px;
+}
+
+.infos h3 {
+  color: var(--color1);
+  margin: 10px;
+  font-size: 0.9rem;
+}
+
+.btn-container {
+}
+
+button {
+  border: none;
+  background: var(--color2);
+  color: var(--color1);
+  width: 150px;
+  padding: 10px 0;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin: 5px;
+}
+
+.infos-right {
+  width: 67%;
+}
+/* On a mis 67% pour infos-right puisqu'on avait mis 33% pour infos-left */
+
+.investors {
+  display: grid;
+  align-items: center;
+  height: 86%;
+}
+/* IMPORTANT !! En grid, pour alignre verticalement, on est obligé préciser une hauteur en pourcentage de la taille dui parent, pour que le align-items soit pris en compte. */
+
+.img-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.img-container img {
+  height: 60px;
+}
